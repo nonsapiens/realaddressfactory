@@ -8,6 +8,7 @@ use Illuminate\Support\Arr;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Str;
+use RuntimeException;
 
 /**
  * Class RealAddressFactory
@@ -24,7 +25,7 @@ class RealAddressFactory
     public static $rateCounter = 0;
 
     /**
-     * @var \Illuminate\Support\Collection|\Geocoder\Model\Address[]
+     * @var Collection|Address[]
      */
     protected $addresses;
 
@@ -54,7 +55,7 @@ class RealAddressFactory
      * @param $name
      * @param $arguments
      *
-     * @return \Illuminate\Support\Collection|\Geocoder\Model\Address[]
+     * @return Collection|Address[]
      */
     public function __call($name, $arguments)
     {
@@ -72,7 +73,7 @@ class RealAddressFactory
      * @param int $count
      * @param null|string|array $locations
      *
-     * @return \Illuminate\Support\Collection|\Geocoder\Model\Address[]
+     * @return Collection|Address[]
      */
     public function makeSouthAfrica(int $count, $locations = null)
     {
@@ -83,7 +84,7 @@ class RealAddressFactory
      * @param int $count
      * @param null|string|array $locations
      *
-     * @return \Illuminate\Support\Collection|\Geocoder\Model\Address[]
+     * @return Collection|Address[]
      */
     public function makeUsa(int $count, $locations = null)
     {
@@ -94,7 +95,7 @@ class RealAddressFactory
      * @param int $count
      * @param null|string|array $locations
      *
-     * @return \Illuminate\Support\Collection|\Geocoder\Model\Address[]
+     * @return Collection|Address[]
      */
     public function makeFrance(int $count, $locations = null)
     {
@@ -105,7 +106,7 @@ class RealAddressFactory
      * @param int $count
      * @param null|string|array $locations
      *
-     * @return \Illuminate\Support\Collection|\Geocoder\Model\Address[]
+     * @return Collection|Address[]
      */
     public function makeGermany(int $count, $locations = null)
     {
@@ -116,7 +117,7 @@ class RealAddressFactory
      * @param int $count
      * @param null|string|array $locations
      *
-     * @return \Illuminate\Support\Collection|\Geocoder\Model\Address[]
+     * @return Collection|Address[]
      */
     public function makeBritain(int $count, $locations = null)
     {
@@ -127,7 +128,7 @@ class RealAddressFactory
      * @param int $count
      * @param null|string|array $locations
      *
-     * @return \Illuminate\Support\Collection|\Geocoder\Model\Address[]
+     * @return Collection|Address[]
      */
     public function makeRussian(int $count, $locations = null)
     {
@@ -138,10 +139,10 @@ class RealAddressFactory
     /**
      * @param int $count The number of addresses to be generated
      * @param string $country The country of the addresses.
-     * @param null|string|array|\Illuminate\Support\Collection $locations Optional locations, or array of locations, to filter by (such as cities, provinces states etc.)
-     * @throws \RuntimeException
+     * @param null|string|array|Collection $locations Optional locations, or array of locations, to filter by (such as cities, provinces states etc.)
+     * @return Collection
+     *@throws RuntimeException
      *
-     * @return \Illuminate\Support\Collection
      */
     public function make(int $count, string $country, $locations = null) : Collection
     {
@@ -156,11 +157,11 @@ class RealAddressFactory
                 for ($i = 0; $i < $count; $i++) {
                     $query = implode(', ', [Arr::random($locations), $country]);
 
-                    /** @var \Geocoder\Model\Address $country */
+                    /** @var Address $country */
                     $lookup = app('geocoder')->geocode($query)->get()->first();
 
                     if ($lookup->getLocality()) {
-                        /** @var \Geocoder\Model\Address $address */
+                        /** @var Address $address */
                         $address = null;
 
                         while (empty($address) || !$address->getStreetName() || !$address->getStreetNumber()) {
@@ -173,7 +174,7 @@ class RealAddressFactory
                     }
                 }
             } else {
-                throw new \RuntimeException('Address Factory exceeded the rate limiter set');
+                throw new RuntimeException('Address Factory exceeded the rate limiter set');
             }
         }
 
@@ -183,11 +184,11 @@ class RealAddressFactory
     /**
      * @param $lat
      * @param $lng
-     * @return \Geocoder\Model\Address
+     * @return Address
      */
     protected function performLookup($lat, $lng) : Address
     {
-        /** @var \Geocoder\Model\Address $address */
+        /** @var Address $address */
         $address = app('geocoder')->reverse($lat, $lng)->get()->first();
 
         return $address;
@@ -215,9 +216,8 @@ class RealAddressFactory
      *
      * @return float
      * @example 48.8932
-     *
      */
-    private function randomFloat($nbMaxDecimals, $min, $max) : float
+    private function randomFloat(int $nbMaxDecimals, $min, $max) : float
     {
         if ($min > $max) {
             $tmp = $min;

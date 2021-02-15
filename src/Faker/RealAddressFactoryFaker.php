@@ -2,13 +2,14 @@
 
 namespace Nonsapiens\RealAddressFactory\Faker;
 
+use Faker\Provider\Address;
 use Nonsapiens\RealAddressFactory\RealAddressFactory;
 
 /**
  * Class RealAddressFactoryFaker.php
  * @package Nonsapiens\RealAddressFactory\Faker
  */
-class RealAddressFactoryFaker extends \Faker\Provider\Address
+class RealAddressFactoryFaker extends Address
 {
 
     /**

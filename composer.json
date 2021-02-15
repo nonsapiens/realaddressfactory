@@ -22,7 +22,8 @@
     "fakerphp/faker": "^1.13",
     "illuminate/support": "^8.27",
     "laravel/framework": "^8.0",
-    "toin0u/geocoder-laravel": "^4.4"
+    "toin0u/geocoder-laravel": "^4.4",
+    "willdurand/geocoder": "^4.4"
   },
   "require-dev": {
     "orchestra/testbench": "^6.12"
@@ -40,7 +41,7 @@
   "extra": {
     "laravel": {
       "providers": [
-        "Nonsapiens\\AddressFactory\\RealAddressFactoryServiceProvider"
+        "Nonsapiens\\RealAddressFactory\\Providers\\RealAddressFactoryServiceProvider"
       ],
       "aliases": {
         "AddressFactory": "Nonsapiens\\RealAddressFactory\\Facades\\RealAddressFactory"
