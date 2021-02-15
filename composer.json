@@ -1,0 +1,56 @@
+{
+  "name": "nonsapiens/addressfactory",
+  "type": "library",
+  "description": "Creates real-world street addresses from Google Maps, to use in database seeding, unit tests, or anything else. Supports Laravel 8+, and Faker",
+  "keywords": [
+    "AddressFactory",
+    "RealAddressFactory",
+    "address"
+  ],
+  "homepage": "https://github.com/nonsapiens/realaddressfactory",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Stuart Steedman",
+      "email": "stuart@yonder.co.za",
+      "homepage": "http://www.yonder.co.za",
+      "role": "Head of Development"
+    }
+  ],
+  "require": {
+    "php": ">=7.3.0",
+    "fakerphp/faker": "^1.13",
+    "illuminate/support": "^8.27",
+    "laravel/framework": "^8.0",
+    "toin0u/geocoder-laravel": "^4.4"
+  },
+  "require-dev": {
+    "orchestra/testbench": "^6.12"
+  },
+  "autoload": {
+    "psr-4": {
+      "Nonsapiens\\RealAddressFactory\\": "src"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Nonsapiens\\RealAddressFactory\\": "tests"
+    }
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "Nonsapiens\\AddressFactory\\RealAddressFactoryServiceProvider"
+      ],
+      "aliases": {
+        "AddressFactory": "Nonsapiens\\RealAddressFactory\\Facades\\RealAddressFactory"
+      }
+    },
+    "branch-alias": {
+      "dev-master": "1.0-dev"
+    }
+  },
+  "config": {
+    "sort-packages": true
+  }
+}
