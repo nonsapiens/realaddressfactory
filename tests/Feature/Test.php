@@ -14,6 +14,8 @@ class Test extends TestCase
         $f = new RealAddressFactory();
         $JohannesburgPoint = $f->makeSouthAfrica(1, "Johannesburg")[0];
 
+        $this->assertInstanceOf("Geocoder\Provider\GoogleMaps\Model\GoogleAddress", $JohannesburgPoint);
+
         $this->assertTrue($JohannesburgPoint->getCoordinates()->getLongitude() < 28.1376001);
         $this->assertTrue($JohannesburgPoint->getCoordinates()->getLongitude() > 27.942449);
         $this->assertTrue($JohannesburgPoint->getCoordinates()->getLatitude() < -26.1041199);
@@ -24,6 +26,8 @@ class Test extends TestCase
     {
         $f = new RealAddressFactory();
         $CapeTownPoint = $f->makeSouthAfrica(1, "Cape Town")[0];
+
+        $this->assertInstanceOf("Geocoder\Provider\GoogleMaps\Model\GoogleAddress", $CapeTownPoint);
 
         $this->assertTrue($CapeTownPoint->getCoordinates()->getLongitude() < 19.00467);
         $this->assertTrue($CapeTownPoint->getCoordinates()->getLongitude() > 18.3074488);
