@@ -15,6 +15,12 @@
       "email": "stuart@yonder.co.za",
       "homepage": "http://www.yonder.co.za",
       "role": "Head of Development"
+    },
+    {
+      "name": "Jonathan Maurer",
+      "email": "jonathan.maurer@yonder.co.za",
+      "homepage": "http://www.yonder.co.za",
+      "role": "Senior Developer"
     }
   ],
   "require": {
