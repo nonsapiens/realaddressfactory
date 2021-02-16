@@ -1,0 +1,6 @@
+<phpunit>
+    <php>
+        <env name="GOOGLE_MAPS_API_KEY" value="!INSERT YOUR KEY HERE FOR TESTING!"/>
+    </php>
+
+</phpunit>

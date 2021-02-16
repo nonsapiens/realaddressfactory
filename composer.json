@@ -35,8 +35,14 @@
   },
   "autoload-dev": {
     "psr-4": {
-      "Nonsapiens\\RealAddressFactory\\": "tests"
+      "Nonsapiens\\RealAddressFactory\\": "src",
+      "Nonsapiens\\Tests\\": "tests"
     }
+  },
+  "scripts": {
+    "post-autoload-dump": [
+      "@php vendor/bin/testbench package:discover --ansi"
+    ]
   },
   "extra": {
     "laravel": {

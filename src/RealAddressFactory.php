@@ -148,7 +148,7 @@ class RealAddressFactory
     {
         $this->addresses = collect();
 
-        if ($cnfCountry = Config::get('realaddress.' . Str::kebab($country), false)) {
+        if ($cnfCountry = Config::get('realaddress.countries.' . Str::kebab($country), false)) {
 
             if (is_null($locations)) $locations = $cnfCountry['cities'];
             if (is_string($locations)) $locations = [$locations];
@@ -163,7 +163,6 @@ class RealAddressFactory
                     if ($lookup->getLocality()) {
                         /** @var Address $address */
                         $address = null;
-
                         while (empty($address) || !$address->getStreetName() || !$address->getStreetNumber()) {
                             $random = $this->getRandomCoordinates($lookup->getBounds());
                             $address = $this->performLookup(... $random);
