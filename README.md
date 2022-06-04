@@ -37,12 +37,13 @@ RealAddress provides additional functions for Faker's `\Faker\Generator` class i
 
 
 ```php
-class UserFactor extends Factory
+class UserFactory extends Factory
 {
     protected $model = User::class;
 
     public function definition(): array
     {
+        /** @var GoogleAddress $address */
         $address = $this->faker->britishAddress();
 
         return [
@@ -118,6 +119,10 @@ An example of extending the `config/realaddress.php` array to include Kenya, and
 
 Note that the cities defined here must be identifiable to Google Maps, and should ideally be spelt in their English variant.
 
+
+### Warning
+Extended and heavy use of this factory may cause Google to block your key.
+Heavy use may also attract GCP API charges, subject to Google's Places API costing structure.
 
 ## About the author
 
