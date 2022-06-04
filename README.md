@@ -1,12 +1,12 @@
 # RealAddress Generator
 ## About
-This Laravel 8 library creates actual, 100% real addresses, with full address details and lat/long coordinates
+This Laravel 8+ library creates actual, 100% real addresses, with full address details and lat/long coordinates
 Using the Google Maps API, these addresses can be created using the RealAddress classes, and also supports Faker, so you can use RealAddress in your database seeding!
 
 ## Installation
 Require this package with composer using the following command:
 ```bash
-composer require  nonsapiens/realaddressfactory 
+composer require nonsapiens/realaddressfactory --dev 
 ```
 
 ### Google Maps API
@@ -15,7 +15,7 @@ As this library relies on Google Maps, your Google Maps API key needs to be defi
 ```
 GOOGLE_MAPS_API_KEY=abcdefghijklmnopqrstuv
 ```
-If you don't have an API key (they're free), [get one here](https://developers.google.com/maps/documentation/javascript/get-api-key)
+If you don't have an API key, [get one here](https://developers.google.com/maps/documentation/javascript/get-api-key)
 
 ## Usage
 
@@ -37,23 +37,23 @@ RealAddress provides additional functions for Faker's `\Faker\Generator` class i
 
 
 ```php
-use Faker\Generator as Faker;
+class UserFactor extends Factory
+{
+    protected $model = User::class;
 
-$factory->define( \App\Models\Business::class, function ( Faker $faker ) {
+    public function definition(): array
+    {
+        $address = $this->faker->britishAddress();
 
-	/** @var \Geocoder\Provider\GoogleMaps\Model\GoogleAddress $address */
-	$address = $faker->britishAddress();
-
-	return [
-
-		'title'              => $faker->words(2),
-		'full_address'       => $address->getFormattedAddress(),
-		'latitude'           => $address->getCoordinates()->getLatitude(),
-		'longitude'          => $address->getCoordinates()->getLongitude()
-
-	];
-
-} );
+        return [
+            'first_name' => $this->faker->firstName($gender),
+            'last_name' => $this->faker->lastName,
+            'full_address' => $address->getFormattedAddress(),
+		    'latitude' => $address->getCoordinates()->getLatitude(),
+		    'longitude' => $address->getCoordinates()->getLongitude()
+        ];
+    }
+}
 ```
 
 Similarly, the address can be limited to a specific city: `$address = $faker->britishAddress('London');`
@@ -83,7 +83,7 @@ Using the Facade allows you to generate real-world addresses at runtime, and als
 The code examples below show typical RealAddress facade usage:
 
 ```php
-use Yomo\AddressFactory\Facades\RealAddress;
+use Nonsapiens\RealAddressFactory\RealAddressFactory;
 .
 .
 .
@@ -97,7 +97,9 @@ $brazilAddresses                = RealAddress::make(10, 'Brazil');						# 10 add
 Functionally, provides the same methods as the Facade above:
 
 ```php
-$f = new \Yomo\AddressFactory\RealAddress();
+use Nonsapiens\RealAddressFactory\RealAddressFactory;
+
+$f = new RealAddressFactory();
 
 $southAfricanPoints = $f->makeSouthAfrica(4);                # Generates 4 locations within South Africa's major cities
 $capeTownPoints     = $f->makeSouthAfrica(2, 'Cape Town');   # Generates 2 locations from Cape Town, South Africa
@@ -119,8 +121,8 @@ Note that the cities defined here must be identifiable to Google Maps, and shoul
 
 ## About the author
 
-[**Stuart Steedman**](https://www.linkedin.com/in/stuart-steedman-b612a537/) is the head of development at [Yonder Media](http://www.yonder.co.za), a South African digital media agency operating out of Pretoria.
+[**Stuart Steedman**](https://www.linkedin.com/in/stuart-steedman-b612a537/) is CTO of [Yonder Media](http://www.yonder.co.za), a GroupM/WPP South African digital media agency operating out of Bryanston.
 He specialises in PHP and Laravel development, and is a speaker at tech and development related conferences.
 
-[**Jonathan Maurer**](https://www.linkedin.com/in/jonathan--maurer) is a senior developer at [Yonder Media](http://www.yonder.co.za), a South African digital media agency operating out of Pretoria.
+[**Jonathan Maurer**](https://www.linkedin.com/in/jonathan--maurer) is a senior developer at [Yonder Media](http://www.yonder.co.za), a GroupM/WPP South African digital media agency operating out of Pretoria.
 He specialises in PHP and Laravel development.
