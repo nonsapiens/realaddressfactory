@@ -26,8 +26,8 @@
   "require": {
     "php": ">=7.3.0",
     "fakerphp/faker": "^1.13",
-    "illuminate/support": "^8.0",
-    "laravel/framework": "^8.0",
+    "illuminate/support": ">=8.0",
+    "laravel/framework": ">=8.0",
     "toin0u/geocoder-laravel": "^4.4",
     "willdurand/geocoder": "^4.4"
   },
