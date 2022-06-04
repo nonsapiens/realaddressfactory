@@ -127,8 +127,8 @@ To help prevent this, there is a built in rate-limiter, that blocks too many cal
 
 ## About the author
 
-[**Stuart Steedman**](https://www.linkedin.com/in/stuart-steedman-b612a537/) is CTO of [Yonder Media](http://www.yonder.co.za), a GroupM/WPP South African digital media agency operating out of Bryanston.
+[**Stuart Steedman**](https://www.linkedin.com/in/stuart-steedman-b612a537/) is CTO of [YONDER](http://www.yonder.co.za), a GroupM/WPP South African digital media agency operating out of Bryanston.
 He specialises in PHP and Laravel development, and is a speaker at tech and development related conferences.
 
-[**Jonathan Maurer**](https://www.linkedin.com/in/jonathan--maurer) is a senior developer at [Yonder Media](http://www.yonder.co.za), a GroupM/WPP South African digital media agency operating out of Pretoria.
+[**Jonathan Maurer**](https://www.linkedin.com/in/jonathan--maurer) is a senior developer at [YONDER](http://www.yonder.co.za), a GroupM/WPP South African digital media agency operating out of Pretoria.
 He specialises in PHP and Laravel development.
