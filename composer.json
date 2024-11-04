@@ -1,7 +1,7 @@
 {
   "name": "nonsapiens/realaddressfactory",
   "type": "library",
-  "description": "Creates real-world street addresses from Google Maps, to use in database seeding, unit tests, or anything else. Supports Laravel 8+, and Faker",
+  "description": "Creates real-world street addresses from Google Maps, to use in database seeding, unit tests, or anything else. Supports Laravel 11+, and Faker",
   "keywords": [
     "AddressFactory",
     "RealAddressFactory",
@@ -12,27 +12,21 @@
   "authors": [
     {
       "name": "Stuart Steedman",
-      "email": "stuart@yonder.co.za",
-      "homepage": "http://www.yonder.co.za",
-      "role": "Head of Development"
-    },
-    {
-      "name": "Jonathan Maurer",
-      "email": "jonathan.maurer@yonder.co.za",
-      "homepage": "http://www.yonder.co.za",
-      "role": "Senior Developer"
+      "email": "stuart@sebenza.taxi",
+      "homepage": "http://www.sebenza.tech",
+      "role": "Chief Technology Officer"
     }
   ],
   "require": {
-    "php": ">=7.3.0",
-    "fakerphp/faker": "^1.13",
-    "illuminate/support": ">=8.0",
-    "laravel/framework": ">=8.0",
-    "toin0u/geocoder-laravel": "^4.4",
-    "willdurand/geocoder": "^4.4"
+    "php": "^8.3",
+    "fakerphp/faker": "^1.23",
+    "illuminate/support": "*",
+    "laravel/framework": "11.*",
+    "toin0u/geocoder-laravel": "^4.7",
+    "willdurand/geocoder": "^4.6"
   },
   "require-dev": {
-    "orchestra/testbench": "^6.12"
+    "orchestra/testbench": "^9.5"
   },
   "autoload": {
     "psr-4": {
@@ -64,6 +58,9 @@
     }
   },
   "config": {
-    "sort-packages": true
+    "sort-packages": true,
+    "allow-plugins": {
+      "php-http/discovery": true
+    }
   }
 }
