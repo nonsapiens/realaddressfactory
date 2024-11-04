@@ -1,6 +1,6 @@
 <?php
 
-namespace Nonsapiens\AddressFactory;
+namespace Nonsapiens\RealAddressFactory\Facades;
 
 use Illuminate\Support\Facades\Facade;
 use Nonsapiens\RealAddressFactory\RealAddressFactory;

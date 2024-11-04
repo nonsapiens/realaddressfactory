@@ -88,9 +88,9 @@ use Nonsapiens\RealAddressFactory\RealAddressFactory;
 .
 .
 .
-$johannesburgAddresses          = RealAddress::makeSouthAfrica(20, 'Johannesburg');		# 20 addresses for Johannesburg, South Africa
-$frenchAddress                  = RealAddress::makeFrance(1);							# A single address for France
-$brazilAddresses                = RealAddress::make(10, 'Brazil');						# 10 addresses for the custom country of Brazil
+$johannesburgAddresses          = RealAddressFactory::makeSouthAfrica(20, 'Johannesburg');		# 20 addresses for Johannesburg, South Africa
+$frenchAddress                  = RealAddressFactory::makeFrance(1);							# A single address for France
+$brazilAddresses                = RealAddressFactory::make(10, 'Brazil');						# 10 addresses for the custom country of Brazil
 ```
 
 ### Using the RealAddress class
@@ -127,8 +127,6 @@ To help prevent this, there is a built in rate-limiter, that blocks too many cal
 
 ## About the author
 
-[**Stuart Steedman**](https://www.linkedin.com/in/stuart-steedman-b612a537/) is CTO of [YONDER](http://www.yonder.co.za), a GroupM/WPP South African digital media agency operating out of Bryanston.
-He specialises in PHP and Laravel development, and is a speaker at tech and development related conferences.
+[**Stuart Steedman**](https://www.linkedin.com/in/stuart-steedman-b612a537/) is CTO of [Sebenza](http://sebenza.tech), a DNI company operating in Bryanston, where we fit free wifi routers to minibus taxis across South Africa.
+He specialises in Laravel development, and is a speaker at tech and development related conferences, including BotCon, AfricaStream, DevConf and more.
 
-[**Jonathan Maurer**](https://www.linkedin.com/in/jonathan--maurer) is a senior developer at [YONDER](http://www.yonder.co.za), a GroupM/WPP South African digital media agency operating out of Pretoria.
-He specialises in PHP and Laravel development.
