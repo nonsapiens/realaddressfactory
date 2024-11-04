@@ -13,11 +13,11 @@ class RealAddressFactoryFaker extends Address
 {
 
     /**
-     * @param $country
+     * @param string $country
      * @param null $cities
-     * @return mixed
+     * @return \Geocoder\Model\Address
      */
-	public function realAddress( $country, $cities = null )
+	public function realAddress( string $country, $cities = null )
 	{
 		$factory = new RealAddressFactory();
 
@@ -25,9 +25,8 @@ class RealAddressFactoryFaker extends Address
 	}
 
     /**
-     * @param $country
      * @param null $cities
-     * @return mixed
+     * @return \Geocoder\Model\Address
      */
 	public function southAfricanAddress( $cities = null )
 	{
@@ -37,9 +36,8 @@ class RealAddressFactoryFaker extends Address
 	}
 
     /**
-     * @param $country
      * @param null $cities
-     * @return mixed
+     * @return \Geocoder\Model\Address
      */
 	public function britishAddress( $cities = null )
 	{
@@ -49,9 +47,8 @@ class RealAddressFactoryFaker extends Address
 	}
 
     /**
-     * @param $country
      * @param null $cities
-     * @return mixed
+     * @return \Geocoder\Model\Address
      */
 	public function frenchAddress( $cities = null )
 	{
@@ -61,9 +58,8 @@ class RealAddressFactoryFaker extends Address
 	}
 
     /**
-     * @param $country
      * @param null $cities
-     * @return mixed
+     * @return \Geocoder\Model\Address
      */
 	public function germanAddress( $cities = null )
 	{
@@ -73,9 +69,8 @@ class RealAddressFactoryFaker extends Address
 	}
 
     /**
-     * @param $country
      * @param null $cities
-     * @return mixed
+     * @return \Geocoder\Model\Address
      */
 	public function usaAddress( $cities = null )
 	{
@@ -85,9 +80,8 @@ class RealAddressFactoryFaker extends Address
 	}
 
     /**
-     * @param $country
      * @param null $cities
-     * @return mixed
+     * @return \Geocoder\Model\Address
      */
 	public function russianAddress($cities = null)
 	{
