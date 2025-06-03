@@ -168,6 +168,12 @@ class RealAddressFactory
                 for ($i = 0; $i < $count; $i++) {
                     $query = implode(', ', [Arr::random($locations), $country]);
 
+                    // Make a test request to validate the API key
+                    $testResponse = @file_get_contents("https://maps.googleapis.com/maps/api/geocode/json?address=Test&key={$apiKey}");
+                    if ($testResponse === false || json_decode($testResponse, true)['status'] === 'REQUEST_DENIED') {
+                        throw new RuntimeException('Google API key is invalid or not authorized.');
+                    }
+
                     /** @var Address $country */
                     $lookup = app('geocoder')->geocode($query)->get()->first();
 

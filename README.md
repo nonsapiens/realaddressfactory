@@ -9,6 +9,11 @@ Require this package with composer using the following command:
 composer require nonsapiens/realaddressfactory --dev 
 ```
 
+To optionally publish the config file, run:
+```bash
+php artisan vendor:publish --provider="Nonsapiens\RealAddressFactory\RealAddressFactoryServiceProvider"
+```
+
 ### Google Maps API
 
 As this library relies on Google Maps, your Google Maps API key needs to be defined in your `.env` file:
@@ -84,13 +89,13 @@ Using the Facade allows you to generate real-world addresses at runtime, and als
 The code examples below show typical RealAddress facade usage:
 
 ```php
-use Nonsapiens\RealAddressFactory\RealAddressFactory;
+use Nonsapiens\RealAddressFactory\Facades\RealAddress;
 .
 .
 .
-$johannesburgAddresses          = RealAddressFactory::makeSouthAfrica(20, 'Johannesburg');		# 20 addresses for Johannesburg, South Africa
-$frenchAddress                  = RealAddressFactory::makeFrance(1);							# A single address for France
-$brazilAddresses                = RealAddressFactory::make(10, 'Brazil');						# 10 addresses for the custom country of Brazil
+$johannesburgAddresses          = RealAddress::makeSouthAfrica(20, 'Johannesburg');		# 20 addresses for Johannesburg, South Africa
+$frenchAddress                  = RealAddress::makeFrance(1);							# A single address for France
+$brazilAddresses                = RealAddress::make(10, 'Brazil');						# 10 addresses for the custom country of Brazil
 ```
 
 ### Using the RealAddress class
@@ -127,6 +132,6 @@ To help prevent this, there is a built in rate-limiter, that blocks too many cal
 
 ## About the author
 
-[**Stuart Steedman**](https://www.linkedin.com/in/stuart-steedman-b612a537/) is CTO of [Sebenza](http://sebenza.tech), a DNI company operating in Bryanston, where we fit free wifi routers to minibus taxis across South Africa.
+[**Stuart Steedman**](https://www.linkedin.com/in/stuart-steedman-b612a537/) is CTO of [Sebenza](https://sebenza.tech), a [DNI](https://www.dninvest.co.za) company operating in Bryanston, where we fit free wifi routers to minibus taxis across South Africa, as well as enabling digital fare collection for the transport industry.
 He specialises in Laravel development, and is a speaker at tech and development related conferences, including BotCon, AfricaStream, DevConf and more.
 
