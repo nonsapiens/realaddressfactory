@@ -18,10 +18,10 @@
     }
   ],
   "require": {
-    "php": "^8.3",
+    "php": "^8.3|8.4",
     "fakerphp/faker": "^1.23",
     "illuminate/support": "*",
-    "laravel/framework": "11.*",
+    "laravel/framework": "11.*|12.*",
     "toin0u/geocoder-laravel": "^4.7",
     "willdurand/geocoder": "^4.6"
   },
