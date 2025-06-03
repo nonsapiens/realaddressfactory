@@ -135,6 +135,17 @@ class RealAddressFactory
         return $this->make($count, 'Russia', $locations);
     }
 
+    /**
+     * @param int $count
+     * @param $locations
+     *
+     * @return Collection|Address[]
+     */
+    public function makeAustralian(int $count, $locations = null)
+    {
+        return $this->make($count, 'Australia', $locations);
+    }
+
 
     /**
      * @param int $count The number of addresses to be generated

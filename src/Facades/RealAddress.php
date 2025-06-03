@@ -5,7 +5,7 @@ namespace Nonsapiens\RealAddressFactory\Facades;
 use Illuminate\Support\Facades\Facade;
 use Nonsapiens\RealAddressFactory\RealAddressFactory;
 
-class RealAddressFacade extends Facade
+class RealAddress extends Facade
 {
     /**
      * @return string
